@@ -1,9 +1,9 @@
-//Import Models 
+//Import Models to Use
 const Users = require('../Models/users.models');
 const Courses = require('../Models/courses.models');
-const Categories = require('../Models/categories.models');
-const Videos = require('../Models/videos.models');
-const usersCourses = require('../Models/userCourses.model');
+//const Categories = require('../Models/categories.models');
+//const Videos = require('../Models/videos.models');
+//const usersCourses = require('../Models/userCourses.model');
 
 class UserServices {
 
@@ -44,7 +44,7 @@ class UserServices {
         attributes: ['first_name', 'last_name', 'email'],
         include: {
           model: Courses,
-          as: 'course',
+          //as: 'course',
           attributes: ['title'],
         },
       });

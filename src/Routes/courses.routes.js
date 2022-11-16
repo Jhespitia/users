@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const express = require("express");
 
 const {
   addCourseToUser,
@@ -6,21 +6,21 @@ const {
   getCoursesFull,
   createCourse,
   updateCourse } = require('../Controllers/courses.controllers');
-
-const coursesRouter = Router();
+//const courseRouter = Router();
+const courseRouter = express.Router();
 
 //To ADD  course to User ->()
 
 //To GET all Courses 'name' ->(GET)
-router.get('/courses', getAllCourses);
+courseRouter.get('/', getAllCourses);
 
 //To GET all Courses Full Info 'video-category' ->(GET)
-router.get('/courses/:id', getCoursesFull);
+courseRouter.get('/:id', getCoursesFull);
 
 //To create Course ->(POST)
-router.post('/courses', createCourse);
+courseRouter.post('/courses', createCourse);
 
 //To update Course ->(PUT)
-router.put('/courses', updateCourse);
+//courseRouter.put('/courses', updateCourse);
 
-module.exports = coursesRouter;
+module.exports = courseRouter;

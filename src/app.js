@@ -1,8 +1,12 @@
 const express = require('express');
 const initModels = require('./Models/initModels');
 const handleError = require('./Middlewares/error');
-const userRouter = require('./Routes/users.routes');
 
+//Import Endpoints
+const userRouter = require('./Routes/users.routes');
+const courseRouter = require('./Routes/courses.routes');
+const videoRouter = require('./Routes/videos.routes');
+const categoryRouter = require('./Routes/categories.routes');
 
 //Import Dotevn
 require('dotenv').config();
@@ -35,7 +39,14 @@ app.get('/', (req, res, next) => {
 app.use(express.json());
 
 //EndPoints - Users
-app.use("/api/v1/users", userRouter);
+app.use('/api/v1/users', userRouter);
+//EndPoints - Courses
+app.use('/api/v1/courses', courseRouter);
+//EndPoints - Categories
+app.use('/api/v1/categories', categoryRouter);
+//EndPoints - Videos
+app.use('/api/v1/videos', videoRouter);
+
 
 //Handle errors
 //app.use(handleError);
